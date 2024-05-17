@@ -1,6 +1,6 @@
 import { Table } from "sst/node/table";
-import handler from "@notes/core/handler";
-import dynamoDb from "@notes/core/dynamodb";
+import handler from "@try-sst/core/handler";
+import dynamoDb from "@try-sst/core/dynamodb";
 
 export const main = handler(async (event) => {
   const data = JSON.parse(event.body || "{}");
