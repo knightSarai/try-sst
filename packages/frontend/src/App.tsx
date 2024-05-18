@@ -6,6 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Routes from "./Routes.tsx";
 import { useNavigate } from "react-router-dom";
 import { AppContext, AppContextType } from "./lib/contextLib";
+import { onError } from "./lib/errorLib";
 import "./App.css";
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
       userHasAuthenticated(true);
     } catch (e) {
       if (e !== "No current user") {
-        alert(e);
+        onError(e);
       }
     }
 
