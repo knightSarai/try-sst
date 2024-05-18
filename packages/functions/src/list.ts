@@ -3,12 +3,12 @@ import handler from "@try-sst/core/handler";
 import dynamoDb from "@try-sst/core/dynamodb";
 
 
-export const main = handler(async (_) => {
+export const main = handler(async (event) => {
   const params = {
     TableName: Table.Notes.tableName,
     KeyConditionExpression: "userId = :userId",
     ExpressionAttributeValues: {
-      ":userId": "123",
+      ":userId": event.requestContext.authorizer?.iam.cognitoIdentity.identityId,
     },
   };
 
